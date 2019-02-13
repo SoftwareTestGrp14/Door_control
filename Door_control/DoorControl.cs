@@ -28,7 +28,7 @@ namespace Door_control
             _entryNotification = entryNotification;
             _alarm = alarm;
         }
-        public void RequestEntry(int idm)
+        public void RequestEntry(int id)
         {
             if (_userValidation.ValidateEntryRequest(id)==true)
             {
