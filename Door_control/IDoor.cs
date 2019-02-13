@@ -16,12 +16,12 @@ namespace Door_control
     {
         public void Open()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Close()
         {
-            throw new NotImplementedException();
+            
         }
     }
 
@@ -29,12 +29,12 @@ namespace Door_control
     {
         public void Open()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Close()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

@@ -8,5 +8,22 @@ namespace Door_control
 {
     interface IAlarm
     {
+        void RaiseAlarm();
+    }
+
+    public class Alarm : IAlarm
+    {
+        public void RaiseAlarm()
+        {
+            
+        }
+    }
+
+    public class FakeAlarm : IAlarm
+    {
+        public void RaiseAlarm()
+        {
+            
+        }
     }
 }
