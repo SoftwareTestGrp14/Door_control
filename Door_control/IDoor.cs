@@ -10,6 +10,31 @@ namespace Door_control
     {
         void Open();
         void Close();
+    }
 
+    public class Door : IDoor
+    {
+        public void Open()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Close()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class FakeDoor : IDoor
+    {
+        public void Open()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Close()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

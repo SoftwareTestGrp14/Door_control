@@ -44,6 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoorControl.cs" />
+    <Compile Include="IAlarm.cs" />
+    <Compile Include="IDoor.cs" />
+    <Compile Include="IEntryNotification.cs" />
+    <Compile Include="IUserValidation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
