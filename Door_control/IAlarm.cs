@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Door_control
 {
-    interface IAlarm
+    public interface IAlarm
     {
         void RaiseAlarm();
     }
@@ -21,9 +21,10 @@ namespace Door_control
 
     public class FakeAlarm : IAlarm
     {
+        public int RaiseAlarmNo { get; private set; } = 0;
         public void RaiseAlarm()
         {
-            
+            RaiseAlarmNo++;
         }
     }
 }

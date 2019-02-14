@@ -8,18 +8,18 @@ namespace Door_control
 {
     public interface IDoor
     {
-        void Open();
-        void Close();
+        void Open(DoorControl doorControl);
+        void Close(DoorControl doorControl);
     }
 
     public class Door : IDoor
     {
-        public void Open()
+        public void Open(DoorControl doorControl)
         {
             
         }
 
-        public void Close()
+        public void Close(DoorControl doorControl)
         {
             
         }
@@ -27,14 +27,19 @@ namespace Door_control
 
     public class FakeDoor : IDoor
     {
-        public void Open()
+        
+        public int OpenNo { get; private set; } = 0;
+        public int CloseNo { get; private set; } = 0;
+        public void Open(DoorControl doorControl)
         {
-            
+            OpenNo++;
+            doorControl.DoorOpen();
         }
 
-        public void Close()
+        public void Close(DoorControl doorControl)
         {
-            
+            CloseNo++;
+            doorControl.DoorClosed();
         }
     }
 }

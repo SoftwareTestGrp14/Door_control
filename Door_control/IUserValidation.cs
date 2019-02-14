@@ -21,9 +21,19 @@ namespace Door_control
 
     public class FakeUserValidation : IUserValidation
     {
+        public int ValidateEntryRequestNo { get; private set; } = 0;
         public bool ValidateEntryRequest(int id)
         {
-            return true;
+            ValidateEntryRequestNo++;
+
+            if (id==1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

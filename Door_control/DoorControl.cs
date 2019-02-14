@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 namespace Door_control
 {
     
-    class DoorControl
+    public class DoorControl
     {
         enum State
         {
             DoorOpening,
+            DoorClosing,
             DoorClosed,
             DoorBreached
         };
@@ -20,6 +21,7 @@ namespace Door_control
         private IUserValidation _userValidation;
         private IEntryNotification _entryNotification;
         private IAlarm _alarm;
+        private State _state = State.DoorClosed;
 
         public DoorControl(IDoor door, IUserValidation userValidation, IEntryNotification entryNotification, IAlarm alarm)
         {
@@ -30,24 +32,50 @@ namespace Door_control
         }
         public void RequestEntry(int id)
         {
-            if (_userValidation.ValidateEntryRequest(id)==true)
+            if (_state==State.DoorClosed)
             {
-                _door.Open();
-            }
+                if (_userValidation.ValidateEntryRequest(id) == true)
+                {
+                    _door.Open(this);
+                    _entryNotification.NotifyEntryGranted();
+                    _state = State.DoorOpening;
+                }
 
+                else
+                {
+                    _entryNotification.NotifyEntryDenied();
+                }
+            }
             else
             {
-                _entryNotification.NotifyEntryDenied();
+                
             }
+            
         }
 
         public void DoorClosed()
         {
+            if (_state==State.DoorClosing)
+            {
+                _state = State.DoorClosed;
+            }
             
         }
 
         public void DoorOpen()
         {
+            if (_state==State.DoorOpening)
+            {
+                _door.Close(this);
+                _state = State.DoorClosing;
+            }
+            
+            else if (_state==State.DoorClosed)
+            {
+                _door.Close();
+                _alarm.RaiseAlarm();
+                _state = State.DoorBreached;
+            }
 
         }
     }
