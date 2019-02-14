@@ -72,7 +72,7 @@ namespace Door_control
             
             else if (_state==State.DoorClosed)
             {
-                _door.Close();
+                _door.Close(this);
                 _alarm.RaiseAlarm();
                 _state = State.DoorBreached;
             }
