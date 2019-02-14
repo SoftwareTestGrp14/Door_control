@@ -24,22 +24,4 @@ namespace Door_control
             
         }
     }
-
-    public class FakeDoor : IDoor
-    {
-        
-        public int OpenNo { get; private set; } = 0;
-        public int CloseNo { get; private set; } = 0;
-        public void Open(DoorControl doorControl)
-        {
-            OpenNo++;
-            doorControl.DoorOpen();
-        }
-
-        public void Close(DoorControl doorControl)
-        {
-            CloseNo++;
-            doorControl.DoorClosed();
-        }
-    }
 }

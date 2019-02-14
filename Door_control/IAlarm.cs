@@ -18,13 +18,4 @@ namespace Door_control
             
         }
     }
-
-    public class FakeAlarm : IAlarm
-    {
-        public int RaiseAlarmNo { get; private set; } = 0;
-        public void RaiseAlarm()
-        {
-            RaiseAlarmNo++;
-        }
-    }
 }

@@ -48,5 +48,11 @@
     <Compile Include="Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Door_control\Door_control.csproj">
+      <Project>{ac31e6fd-d683-4489-a57c-9026f3867d90}</Project>
+      <Name>Door_control</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Door_control;
 
 namespace DoorControl.Test
 {
-    class FakeAlarm
+    class FakeAlarm : IAlarm
     {
-        private int _Triggers = 0;
-
-        public int _Alarms
-        {
-            get { return this._Triggers; }
-        }
-        
+        public int Triggers { get; private set; } = 0;
         public void RaiseAlarm()
         {
-            ++_Triggers;
+            ++Triggers;
         }
     }
 }
