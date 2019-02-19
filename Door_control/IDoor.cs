@@ -8,18 +8,18 @@ namespace Door_control
 {
     public interface IDoor
     {
-        void Open(DoorControl doorControl);
-        void Close(DoorControl doorControl);
+        void Open();
+        void Close();
     }
 
     public class Door : IDoor
     {
-        public void Open(DoorControl doorControl)
+        public void Open()
         {
             
         }
 
-        public void Close(DoorControl doorControl)
+        public void Close()
         {
             
         }

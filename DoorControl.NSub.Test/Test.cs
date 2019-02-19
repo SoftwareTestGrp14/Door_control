@@ -39,5 +39,23 @@ namespace DoorControl.NSub.Test
 
 
 
+
+
+
+
+
+        [Test]
+        public void RequestEntry_RequestEntryCalled_IdEqualsFalse_NotifyEntryGrantedIsNotCalled()
+        {
+            _uut.RequestEntry(2);
+            entryNotification.Received(0).NotifyEntryGranted();
+        }
+
+        [Test]
+        public void RequestEntry_RequestEntryCalled_IdEqualsTrue_ClosedCalled()
+        {
+            _uut.RequestEntry(1);
+            door.Received(1).Close(doorControl: _uut);
+        }
     }
 }

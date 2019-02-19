@@ -12,16 +12,14 @@ namespace Door.Control.Test
 
         public int OpenNo { get; private set; } = 0;
         public int CloseNo { get; private set; } = 0;
-        public void Open(Door_control.DoorControl doorControl)
+        public void Open()
         {
             OpenNo++;
-            doorControl.DoorOpen();
         }
 
-        public void Close(Door_control.DoorControl doorControl)
+        public void Close()
         {
             CloseNo++;
-            doorControl.DoorClosed();
         }
     }
 }

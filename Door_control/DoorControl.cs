@@ -36,7 +36,7 @@ namespace Door_control
             {
                 if (_userValidation.ValidateEntryRequest(id) == true)
                 {
-                    _door.Open(this);
+                    _door.Open();
                     _entryNotification.NotifyEntryGranted();
                     _state = State.DoorOpening;
                 }
@@ -66,13 +66,13 @@ namespace Door_control
         {
             if (_state==State.DoorOpening)
             {
-                _door.Close(this);
+                _door.Close();
                 _state = State.DoorClosing;
             }
             
             else if (_state==State.DoorClosed)
             {
-                _door.Close(this);
+                _door.Close();
                 _alarm.RaiseAlarm();
                 _state = State.DoorBreached;
             }
