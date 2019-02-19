@@ -40,17 +40,16 @@ namespace DoorControl.NSub.Test
         [Test]
         public void RequestEntry_RequestEntryCalled_IdEqualsTrue_OpenCalled()
         {
+            userValidation.ValidateEntryRequest(1).Returns(true);
             _uut.RequestEntry(1);
-
-            
-            door.Received(1).Open(_uut);
+            door.Received(1).Open();
         }
 
         [Test]
         public void RequestEntry_RequestEntryCalled_IdEqualsTrue_NotifyEntryGrantedIsCalled()
         {
+            userValidation.ValidateEntryRequest(1).Returns(true);
             _uut.RequestEntry(1);
-
             entryNotification.Received(1).NotifyEntryGranted();
         }
 
@@ -58,6 +57,7 @@ namespace DoorControl.NSub.Test
         [Test]
         public void RequestEntry_RequestEntryCalled_IdEqualsTrue_NotifyEntryDeniedIsNotCalled()
         {
+            userValidation.ValidateEntryRequest(1).Returns(true);
             _uut.RequestEntry(1);
             entryNotification.DidNotReceive().NotifyEntryDenied();
         }
@@ -84,7 +84,8 @@ namespace DoorControl.NSub.Test
         public void RequestEntry_RequestEntryCalled_IdEqualsTrue_ClosedCalled()
         {
             _uut.RequestEntry(1);
-            door.Received(1).Close(doorControl: _uut);
+            _uut.DoorOpen();
+            door.Received(1).Close();
         }
     }
 }
