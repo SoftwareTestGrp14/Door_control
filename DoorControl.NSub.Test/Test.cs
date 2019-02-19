@@ -41,6 +41,8 @@ namespace DoorControl.NSub.Test
         public void RequestEntry_RequestEntryCalled_IdEqualsTrue_OpenCalled()
         {
             _uut.RequestEntry(1);
+
+            
             door.Received(1).Open(_uut);
         }
 
