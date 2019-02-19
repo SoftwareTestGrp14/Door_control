@@ -31,6 +31,12 @@ namespace DoorControl.NSub.Test
 
 
         [Test]
+        public void RequestEntry_RequestEntryCalled_IdEqualsTrue_ValidateEntryRequestIsCalled()
+        {
+            _uut.RequestEntry(1);
+            userValidation.Received(1).ValidateEntryRequest(1);
+        }
+
 
 
     }
