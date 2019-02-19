@@ -69,10 +69,6 @@ namespace DoorControl.NSub.Test
             entryNotification.Received(1).NotifyEntryDenied();
         }
 
-
-
-
-
         [Test]
         public void RequestEntry_RequestEntryCalled_IdEqualsFalse_NotifyEntryGrantedIsNotCalled()
         {
@@ -86,6 +82,18 @@ namespace DoorControl.NSub.Test
             _uut.RequestEntry(1);
             _uut.DoorOpen();
             door.Received(1).Close();
+        }
+
+        [Test]
+        public void DoorOpen_DoorOpenIsCalled_StateEqualsDoorClosed_ClosedCalled()
+        {
+            //Skriv kode her Jonas
+        }
+
+        [Test]
+        public void DoorOpen_DoorOpenIsCalled_StateEqualsDoorClosed_RaiseAlarmCalled()
+        {
+            //Skriv kode her Jonas
         }
     }
 }

@@ -76,14 +76,6 @@ namespace Door.Control.Test
         }
 
         [Test]
-        public void RequestEntry_RequestEntryCalled_IdEqualsTrue_ClosedCalled()
-        {
-            _uut.RequestEntry(1);
-            FakeDoor doorCheck = (FakeDoor)door;
-            Assert.That(doorCheck.CloseNo, Is.EqualTo(1));
-        }
-
-        [Test]
         public void DoorOpen_DoorOpenIsCalled_StateEqualsDoorClosed_ClosedCalled()
         {
             _uut.DoorOpen();
