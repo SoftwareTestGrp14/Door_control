@@ -52,6 +52,8 @@ namespace DoorControl.NSub.Test
             entryNotification.Received(1).NotifyEntryGranted();
         }
 
+
+        [Test]
         public void RequestEntry_RequestEntryCalled_IdEqualsTrue_NotifyEntryDeniedIsNotCalled()
         {
             _uut.RequestEntry(1);
