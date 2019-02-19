@@ -98,9 +98,5 @@ namespace Door.Control.Test
             FakeAlarm alarmCheck = (FakeAlarm) alarm;
             Assert.That(alarmCheck.Triggers, Is.EqualTo(1));
         }
-
-
-
-
     }
 }
