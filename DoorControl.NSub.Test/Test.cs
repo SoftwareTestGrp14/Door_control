@@ -55,5 +55,18 @@ namespace DoorControl.NSub.Test
         }
 
 
+        [Test]
+        public void RequestEntry_RequestEntryCalled_IdEqualsTrue_NotifyEntryDeniedIsNotCalled()
+        {
+            _uut.RequestEntry(1);
+            entryNotification.DidNotReceive().NotifyEntryDenied();
+        }
+
+        [Test]
+        public void RequestEntry_RequestEntryCalled_IdEqualsFalse_NotifyEntryDeniedIsCalled()
+        {
+            _uut.RequestEntry(2);
+            entryNotification.Received(1).NotifyEntryDenied();
+        }
     }
 }
