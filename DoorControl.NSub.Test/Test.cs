@@ -87,13 +87,15 @@ namespace DoorControl.NSub.Test
         [Test]
         public void DoorOpen_DoorOpenIsCalled_StateEqualsDoorClosed_ClosedCalled()
         {
-            //Skriv kode her Jonas
+            _uut.DoorOpen();
+            door.Received(1).Close();
         }
 
         [Test]
         public void DoorOpen_DoorOpenIsCalled_StateEqualsDoorClosed_RaiseAlarmCalled()
         {
-            //Skriv kode her Jonas
+            _uut.DoorOpen();
+            alarm.Received(1).RaiseAlarm();
         }
     }
 }
